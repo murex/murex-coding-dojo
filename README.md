@@ -1,3 +1,5 @@
+Coding Dojo Sessions @ Murex
+
 <pre>
    _____          _ _             _____        _       
   / ____|        | (_)           |  __ \      (_)      
