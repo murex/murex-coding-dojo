@@ -98,7 +98,6 @@ public class GameOfLifeTest {
       );
    }
 
-   @Ignore
    @Test
    public void
    acceptance_test() {
@@ -112,7 +111,7 @@ public class GameOfLifeTest {
         new boolean[][]{
           {DEAD, DEAD, DEAD, DEAD},
           {DEAD, ALIVE, ALIVE, DEAD},
-          {DEAD, ALIVE, ALIVE, ALIVE},
+          {DEAD, ALIVE, ALIVE, DEAD},
           {DEAD, ALIVE, ALIVE, DEAD}
         });
    }
