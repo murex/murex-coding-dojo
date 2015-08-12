@@ -12,8 +12,8 @@ Any live cell with more than three live neighbours dies, as if by overcrowding.
 Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
 ###Retrospective
-It was nice
-More familiar with TDD than the last time, applying the concept rather than learning. Searching for bugs was easier with incremental code
-Nice to have people attending again, problem was nice due to related rules
-Same as above points, better than last session
-Wasted time to write test case, we would have taken time to write more code. Sad couldn't finish it
+1. It was nice
+2. More familiar with TDD than the last time, applying the concept rather than learning. Searching for bugs was easier with incremental code
+3. Nice to have people attending again, problem was nice due to related rules
+4. Same as above points, better than last session
+5. Wasted time to write test case, we would have taken time to write more code. Sad couldn't finish it
