@@ -1,19 +1,19 @@
 # Subject
 
 Subject | Votes
--|-
-Mastermind | *****
-brainfuck |	**********
-poker hand | *********
+--------|-------
+Mastermind | xxxxx
+brainfuck |	xxxxxxxxxx
+poker hand | xxxxxxxxx
 
 # Language
 
 Language | Votes
--|-
-Haskell	| ******************
-Ruby |	******
-Python |	***
-Java |	*********
+---------|------
+Haskell	| xxxxxxxxxxxxxxxxxx
+Ruby |	xxxxxx
+Python |	xxx
+Java |	xxxxxxxxx
 
 # Retrospective
 
