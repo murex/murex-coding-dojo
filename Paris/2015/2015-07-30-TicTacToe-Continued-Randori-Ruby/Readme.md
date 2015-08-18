@@ -2,8 +2,8 @@
 
 Subject | Votes
 --------|-------
-Hacking Lego Mindstorms	| ******
-Tic Tac Toe IAs tournament | ***
+**Hacking Lego Mindstorms**	| xxxxxx
+Tic Tac Toe IAs tournament | xxx
 
 We would like to use existing mars rover kata code to move the robot.
 Eventually, we did 2 sub groups for both subjects

@@ -3,14 +3,14 @@
 Subject | Votes
 --------|-------
 Mastermind | xxxxx
-brainfuck |	xxxxxxxxxx
+**brainfuck**  | xxxxxxxxxx
 poker hand | xxxxxxxxx
 
 # Language
 
 Language | Votes
 ---------|------
-Haskell	| xxxxxxxxxxxxxxxxxx
+**Haskell**	| xxxxxxxxxxxxxxxxxx
 Ruby |	xxxxxx
 Python |	xxx
 Java |	xxxxxxxxx
