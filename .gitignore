@@ -10,21 +10,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-Beirut/.idea/.name
-Beirut/.idea/compiler.xml
-Beirut/.idea/misc.xml
-Beirut/.idea/copyright/profiles_settings.xml
-Beirut/.idea/modules.xml
-Beirut/.idea/workspace.xml
+Beirut/.idea/*
+Beirut/*/.idea/*
+Beirut/*/*/.idea/*
+Beirut/*/.idea/libraries/*.xml
+Beirut/*/*/.idea/libraries/*.xml
+Beirut/*/.idea/*.xml
+Beirut/*/.idea/.name
 Beirut/beirut-coding-dojo.iml
-Beirut/.idea/libraries/Maven__com_google_guava_guava_r05.xml
-Beirut/.idea/libraries/Maven__junit_junit_4_11.xml
-Beirut/.idea/libraries/Maven__org_easytesting_fest_util_1_2_5.xml
-Beirut/.idea/uiDesigner.xml
-Beirut/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
-Beirut/.idea/sonarIssues.xml
-Beirut/Session1-Bowling/.idea/misc.xml
 *.iml
-Beirut/Session1-Bowling/.idea/.name
-Beirut/Session1-Bowling/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
-Beirut/*/.idea
