@@ -1,0 +1,14 @@
+# The Subject
+
+For the full kata: http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals
+
+# Retrospective
+
+* not so happy about the end (%10 thing)
+* romans should have thought better
+* we had a zero in the solution
+* not as simple as expected
+* will you install "key promoter" ?
+* tests drove the algo : bad tests => bad algo !
+* how to get the balance ?
+* better PC in 6B17 !

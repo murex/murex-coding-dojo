@@ -1,0 +1,15 @@
+ça change de ne pas faire du TDD
+on a rarement du code aussi sale au début
+  -> idée pour la prochaine fois: injection de dépendance ? refactoring plus compliqué
+le process pour parvenir au polymorphisme est intéressant
+on aurait pu faire un item visitor pour moins coder dans la classe FluentItem
+
+rigolo qu'intelliJ trouve tout de suite des refactoring
+
+bon format au niveau temps
+
+l'héritage à la fin est un peu bancal, on surcharge à deux niveaux
+le text test est plutôt cool pour les softs qui "crachent" plein de données
+le toString compare est vraiment facile à lire
+
+où s'arrête le refactoring ?
