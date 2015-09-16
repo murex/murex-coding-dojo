@@ -23,3 +23,16 @@ Marie's employee ID is 0, and all other employees have IDs from 1 to N - 1, incl
 Output
 
 For each test case, output one line containing "Case #x: y", where x is the test case number (starting from 1) and y is the largest number of employees Marie can keep at the company, including herself, such that all of laws 1-7 are obeyed.
+
+
+#Retrospective - First Session 
+1. We might have a problem where we can apply TDD 
+2. TDD made us think of the design 
+3. It is better to have complex problems 
+4. Complex problems trigger discussion 
+5. I felt hard to follow up 
+6. Better than straight forward problems 
+7. I like the discussion before writing the code 
+8. I understood the problem because of the discussion 
+9. Discussions gave us ore than one algorithms 
+10. To be continued in a later session 
