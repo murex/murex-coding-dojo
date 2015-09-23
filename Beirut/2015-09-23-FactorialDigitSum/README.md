@@ -9,13 +9,9 @@ Find the sum of the digits in the number 100!
 
 
 #Retrospective - First Session 
-1. We might have a problem where we can apply TDD 
-2. TDD made us think of the design 
-3. It is better to have complex problems 
-4. Complex problems trigger discussion 
-5. I felt hard to follow up 
-6. Better than straight forward problems 
-7. I like the discussion before writing the code 
-8. I understood the problem because of the discussion 
-9. Discussions gave us ore than one algorithms 
-10. To be continued in a later session 
+1. Very nice, applied TDD to the max 
+2. Simple problem allowed us to refactor the code to an optimal state and apply TDD 
+3. TDD in action 
+4. I like the concept of BigInteger
+5. Thanks for the chocolate 
+6. It was nice to try the parametrized tests 
