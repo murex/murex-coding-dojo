@@ -7,7 +7,7 @@ public class Company {
 
    private final int numberOfEmployees;
    private final int salaryDifference;
-
+   private int toKeep =1;
    private Company(Builder builder) {
       this.numberOfEmployees = builder.numberOfEmployees;
       this.salaryDifference = builder.salaryDifference;
@@ -18,7 +18,7 @@ public class Company {
    }
 
    public int employeesToKeep() {
-      return 1;
+      return toKeep;
    }
 
    private static final class SalaryData {
@@ -26,7 +26,6 @@ public class Company {
       private int as;
       private int cs;
       private int rs;
-
 
       public SalaryData(int s0, int as, int cs, int rs) {
          this.s0 = s0;
@@ -55,12 +54,16 @@ public class Company {
 
       private final int numberOfEmployees;
       private final int salaryDifference;
-      private SalaryData salaryData;
-      private ManagerData managerData;
+      private SalaryData salaryData = new SalaryData(0, 0, 0, 0);
+      private ManagerData managerData = new ManagerData(0, 0, 0, 0);
 
-      public Builder(int numberOfEmployees, int salaryDifference) {
+      private Builder(int numberOfEmployees, int salaryDifference) {
          this.numberOfEmployees = numberOfEmployees;
          this.salaryDifference = salaryDifference;
+      }
+
+      public static Builder aCompanyBuilder(int numberOfEmployees, int salaryDifference) {
+         return new Builder(numberOfEmployees, salaryDifference);
       }
 
       public Builder withSalaryData(int s0, int as, int cs, int rs) {
@@ -75,21 +78,36 @@ public class Company {
 
       public Company build() {
          List<Employee> employees = Lists.newArrayList();
-         employees.add(new Employee(0, salaryData.s0,managerData.m0));
+         employees.add(new Employee(0, salaryData.s0,0,managerData.m0));
 
          for (int employeeId = 1; employeeId < numberOfEmployees; employeeId++) {
             Employee previousEmployee = employees.get(employeeId-1);
 
             int salary = (previousEmployee.salary() * salaryData.as + salaryData.cs) % salaryData.rs;
-            int manager = ((previousEmployee.manager()* managerData.am + managerData.cm) & managerData.rm) % employeeId;
-            Employee currentEmployee = new Employee(employeeId, salary, manager);
+            int mi = ((previousEmployee.getM()* managerData.am + managerData.cm) % managerData.rm);
+
+            int manager = mi%employeeId;
+            employees.get(manager).addDirectReport(employeeId);
+
+            Employee currentEmployee = new Employee(employeeId, salary, manager,mi);
             employees.add(currentEmployee);
 
          }
          Company company = new Company(this);
-
+         company.toKeep = compute(employees) ;
          return company;
 
       }
+
+
+      private int compute(List<Employee> employees) {
+         Employee ceo = employees.get(0);
+         List<Integer> directReports = ceo.directReports();
+         List<Integer> countDirectReports = Lists.newArrayList();
+
+         return 1;
+      }
+
+
    }
 }

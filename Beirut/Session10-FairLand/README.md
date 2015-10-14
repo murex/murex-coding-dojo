@@ -36,3 +36,11 @@ For each test case, output one line containing "Case #x: y", where x is the test
 8. I understood the problem because of the discussion 
 9. Discussions gave us ore than one algorithms 
 10. To be continued in a later session 
+
+#Retrospective - Second Session 
+1. Too much discussion, we go lost with the different ideas
+2. We lost time in discussion 
+3. Time difference between sessions was too long 
+4. We should have reread the code ahead time
+5. Very nice 
+6. I like the session even if we didn't write enough code 
