@@ -20,6 +20,10 @@ using these common coins? (1 dollar = 100 cents).
 
 ------------------------------------------------------
 
+Cyber dojo: http://cyber-dojo.org/kata/edit/FBEB9E?avatar=lion
+
+------------------------------------------------------
+
 ## Retrospective
 - Could improve with dynamic programming
 - happy we did the refactoring
