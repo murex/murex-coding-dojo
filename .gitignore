@@ -19,3 +19,4 @@ Beirut/*/.idea/*.xml
 Beirut/*/.idea/.name
 Beirut/beirut-coding-dojo.iml
 *.iml
+Beirut/*/target/*
