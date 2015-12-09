@@ -1,53 +1,206 @@
 import org.fest.assertions.api.Assertions;
-import org.fest.assertions.api.ObjectArrayAssert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class SudokuTest {
-   @Test
-    public void
-    it_fills_the_missing_number_in_a_3X3_grid() {
-      assertSmallGrid(Sudoku.sudoku(new int[][]{
-        {1, 2, 3},
-        {4, 0, 6},
-        {7, 8, 9}
-      }).solveSmallSquare());
-   }
 
    @Test
    public void
-   it_fills_two_missing_numbers_in_a_3X3_grid() {
-      assertSmallGrid(Sudoku.sudoku(new int[][]{
-        {1, 2, 3},
-        {4, 0, 6},
-        {7, 8, 0}
-      }).solveSmallSquare());
-   }
-
-   @Test
-   public void
-   it_fills_Multiple_missing_numbers_in_a_3X3_empty_grid() {
-      assertSmallGrid(Sudoku.sudoku(new int[][]{
-        {0, 0, 0},
-        {0, 0, 0},
-        {0, 0, 0}
-      }).solveSmallSquare());
-   }
-
-   @Test
-   public void
-   it_fills_zero_missing_numbers_in_a_3X3_grid() {
-      assertSmallGrid(Sudoku.sudoku(new int[][]{
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-      }).solveSmallSquare());
-   }
-
-   private ObjectArrayAssert<int[]> assertSmallGrid(int[][] input) {
-      return Assertions.assertThat(input).isEqualTo(new int[][]{
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
+   it_should_solve_sudoku_with_one_missing_in_first_cell() {
+      assertSudoku(new int[][]{
+        {0, 2, 3, 4, 5, 6, 7, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 5, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
       });
    }
+
+   @Test
+   public void
+   it_should_solve_sudoku_with_one_missing_in_first_row() {
+      assertSudoku(new int[][]{
+        {1, 2, 3, 4, 5, 6, 0, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 5, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+   @Test
+   public void
+   it_should_solve_sudoku_with_one_missing_field() {
+      assertSudoku(new int[][]{
+        {1, 2, 3, 4, 5, 6, 7, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 0, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   @Test
+   public void
+   it_should_solve_sudoku_with_edge_case() {
+      assertSudoku(new int[][]{
+        {0, 0, 0, 4, 5, 6, 7, 8, 9},
+        {0, 0, 6, 7, 8, 9, 1, 2, 3},
+        {0, 8, 9, 1, 2, 3, 4, 5, 6},
+        {0, 3, 4, 5, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   @Test
+   public void
+   it_should_solve_sudoku_with_two_missing_fields_each_in_a_line() {
+      assertSudoku(new int[][]{
+        {1, 2, 3, 4, 5, 6, 7, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 0, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 0, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   @Test
+   public void
+   it_should_solve_sudoku_with_two_missing_fields_in_the_same_line() {
+      assertSudoku(new int[][]{
+        {1, 2, 3, 4, 5, 6, 7, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 0, 6, 7, 0, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   @Test
+   public void
+   it_should_solve_sudoku_with_four_missing_fields_in_a_square() {
+      assertSudoku(new int[][]{
+        {1, 2, 3, 4, 5, 6, 0, 0, 0},
+        {4, 5, 6, 7, 8, 9, 0, 0, 0},
+        {7, 8, 9, 1, 2, 3, 4, 0, 0},
+        {2, 3, 4, 5, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   @Test
+   public void
+   it_should_return_the_same_sudoku_when_already_solved() {
+      assertSudoku(new int[][]{
+        {1, 2, 3, 4, 5, 6, 7, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 5, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   @Test
+   public void
+   acceptance_test() {
+      assertSudoku(new int[][]{
+        {0, 0, 3, 0, 2, 0, 6, 0, 0},
+        {9, 0, 0, 3, 0, 5, 0, 0, 1},
+        {0, 0, 1, 8, 0, 6, 4, 0, 0},
+        {0, 0, 8, 1, 0, 2, 9, 0, 0},
+        {7, 0, 0, 0, 0, 0, 0, 0, 8},
+        {0, 0, 6, 7, 0, 8, 2, 0, 0},
+        {0, 0, 2, 6, 0, 9, 5, 0, 0},
+        {8, 0, 0, 2, 0, 3, 0, 0, 9},
+        {0, 0, 5, 0, 1, 0, 3, 0, 0}
+      }, new int[][]{
+        {4, 8, 3, 9, 2, 1, 6, 5, 7},
+        {9, 6, 7, 3, 4, 5, 8, 2, 1},
+        {2, 5, 1, 8, 7, 6, 4, 9, 3},
+        {5, 4, 8, 1, 3, 2, 9, 7, 6},
+        {7, 2, 9, 5, 6, 4, 1, 3, 8},
+        {1, 3, 6, 7, 9, 8, 2, 4, 5},
+        {3, 7, 2, 6, 8, 9, 5, 1, 4},
+        {8, 1, 4, 2, 5, 3, 7, 6, 9},
+        {6, 9, 5, 4, 1, 7, 3, 8, 2}
+      });
+   }
+
+   @Ignore
+   @Test
+   public void
+   acceptance_extreme_test() {
+      int[][] input = new int[][]{
+        {0,0,4,0,0,2,0,0,8},
+        {0,3,0,0,7,0,0,1,0},
+        {1,0,0,6,0,0,7,0,0},
+        {2,0,0,1,0,0,9,0,0},
+        {0,5,0,0,2,0,0,4,0},
+        {0,0,6,0,0,3,0,0,2},
+        {0,0,1,0,0,6,0,0,3},
+        {0,8,0,0,9,0,0,6,0},
+        {7,0,0,2,0,0,4,0,0}
+      };
+      assertSudoku(input, new int[][]{
+        {6, 7, 4, 9, 1, 2, 3, 5, 8},
+        {8, 3, 9, 4, 7, 5, 2, 1, 6},
+        {1, 2, 5, 6, 3, 8, 7, 9, 4},
+        {2, 4, 8, 1, 6, 7, 9, 3, 5},
+        {3, 5, 7, 8, 2, 9, 6, 4, 1},
+        {9, 1, 6, 5, 4, 3, 8, 7, 2},
+        {4, 9, 1, 7, 8, 6, 5, 2, 3},
+        {5, 8, 2, 3, 9, 4, 1, 6, 7},
+        {7, 6, 3, 2, 5, 1, 4, 8, 9}
+      });
+   }
+
+   private void assertSudoku(int[][] input) {
+      assertSudoku(input, new int[][]{
+        {1, 2, 3, 4, 5, 6, 7, 8, 9},
+        {4, 5, 6, 7, 8, 9, 1, 2, 3},
+        {7, 8, 9, 1, 2, 3, 4, 5, 6},
+        {2, 3, 4, 5, 6, 7, 8, 9, 1},
+        {5, 6, 7, 8, 9, 1, 2, 3, 4},
+        {8, 9, 1, 2, 3, 4, 5, 6, 7},
+        {3, 4, 5, 6, 7, 8, 9, 1, 2},
+        {6, 7, 8, 9, 1, 2, 3, 4, 5},
+        {9, 1, 2, 3, 4, 5, 6, 7, 8}
+      });
+   }
+
+   private void assertSudoku(int[][] input, int[][] expected) {
+      Assertions.assertThat(Sudoku.sudoku(input).solve()).isEqualTo(expected);
+   }
+
 }
