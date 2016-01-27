@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Set;
 
 import org.fest.assertions.api.IterableAssert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.common.collect.Sets;
@@ -39,7 +38,6 @@ public class DependencyTest {
       assertDependencies("A", dependencyBuilder, Sets.newHashSet("B", "D", "C"));
    }
 
-   @Ignore
    @Test
    public void it_should_avoid_cycles(){
       DependencyBuilder dependencyBuilder = DependencyBuilder.dependencyBuilder()

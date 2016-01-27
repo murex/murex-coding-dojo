@@ -1,18 +1,14 @@
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 public class CodeLine {
-   public static long lineCount(String fileName) throws IOException {
-      Stream<String> lines = FileToStreamOfStrings(fileName);
 
+   public static long lineCount(List<String> lines) throws IOException {
       List<String> strings = linesWithoutBackslashStarComment(lines);
-
       return  listWithoutDoubleSlashComments(strings).count();
    }
 
@@ -23,17 +19,24 @@ public class CodeLine {
       });
    }
 
-   private static List<String> linesWithoutBackslashStarComment(Stream<String> lines) {
-      List<String> linesList  = lines.collect(Collectors.toList()) ;
+   private static List<String> linesWithoutBackslashStarComment(List<String> lines) throws IOException {
       List<String> linesWithoutBackslashStar = Lists.newArrayList();
       boolean findmatch = false;
-      for(String line : linesList){
-         if(line.startsWith("/*")){
-            findmatch = true;
+      for(String line : lines){
+         if(line.contains("/*")&& !findmatch){
+            findmatch= true;
+            if(!line.startsWith("/*")){
+               linesWithoutBackslashStar.add(line);
+            }
          }
-         if(line.endsWith("*/")){
-            findmatch  = false;
-            continue;
+         if(line.contains("*/")){
+            int lastIndexOfCommentBlockEnding = line.lastIndexOf("*/");
+            String codeLineTail = line.substring(lastIndexOfCommentBlockEnding + 2);
+            if(listWithoutDoubleSlashComments(ImmutableList.of(codeLineTail)).count()==0)
+            {
+               findmatch  = false;
+               continue;
+            }
          }
          if(!findmatch){
             linesWithoutBackslashStar.add(line);
@@ -42,9 +45,5 @@ public class CodeLine {
       return linesWithoutBackslashStar;
    }
 
-   private static Stream<String> FileToStreamOfStrings(String fileName) throws IOException {
-      ClassLoader classLoader = CodeLine.class.getClassLoader();
-      File file = new File(classLoader.getResource(fileName).getFile());
-      return Files.lines(file.toPath());
-   }
+
 }
