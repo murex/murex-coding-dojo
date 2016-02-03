@@ -3,6 +3,10 @@ public class FlowersCostBuilder {
    private int flowers;
    private int[] costs;
 
+   public static FlowersCostBuilder aFlowersCostBuilder(){
+      return new FlowersCostBuilder();
+   }
+
    public FlowersCostBuilder people(int nbOfPeople) {
       this.people = nbOfPeople;
       return this;
