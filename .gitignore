@@ -10,13 +10,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+*.iml
+*.name
 Beirut/.idea/*
 Beirut/*/.idea/*
-Beirut/*/*/.idea/*
-Beirut/*/.idea/libraries/*.xml
-Beirut/*/*/.idea/libraries/*.xml
-Beirut/*/.idea/*.xml
-Beirut/*/.idea/.name
-Beirut/beirut-coding-dojo.iml
-*.iml
 Beirut/*/target/*
+Beirut/2015/*/.idea/
+Beirut/2015/*/*/.idea/
+Beirut/2015/*/target/*
+
