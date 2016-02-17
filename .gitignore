@@ -18,4 +18,8 @@ Beirut/*/target/*
 Beirut/2015/*/.idea/
 Beirut/2015/*/*/.idea/
 Beirut/2015/*/target/*
-
+Beirut/2016/*/.idea/
+Beirut/2016/*/*/.idea/
+Beirut/2016/*/target/*
+Beirut/2016/*.idea/*.xml
+Beirut/2016/2016-02-17-even-fibonacci-numbers/.idea/sonarIssues.xml
