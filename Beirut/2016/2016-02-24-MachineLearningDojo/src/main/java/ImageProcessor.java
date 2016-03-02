@@ -8,32 +8,35 @@ public class ImageProcessor {
         this.coordinatesToProbability = new HashMap<>();
     }
 
-    private void pushCoordinate(int x, int y, Character character, int size) {
-        Coordinate coordinate = new Coordinate((int) Math.floor(x * Parameters.X_CHUNK_SIZE * 1.0/ size),
-                (int) Math.floor(y * Parameters.Y_CHUNK_SIZE * 1.0/ size));
+    private void pushCoordinate(int x, int y, Character character, int xsize, int ysize) {
+
+        int xChunkSize = (int) Math.ceil((1.0*xsize)/Parameters.NUMBER_OF_COLUMNS);
+        int yChunkSize = (int)  Math.ceil(1.0*ysize/Parameters.NUMBER_OF_ROWS);
+
+        Coordinate coordinate = new Coordinate(x/xChunkSize, y/yChunkSize);
         coordinatesToProbability.putIfAbsent(coordinate, new BlackProbability());
         BlackProbability probability = coordinatesToProbability.get(coordinate);
 
         probability.incrementDenominator();
-        if (character == ' ') {
+        if (character != ' ') {
             probability.incrementNumerator();
         }
     }
 
     public int[][] process(ArrayList<String> image) {
-        int[][] results = new int[Parameters.Y_CHUNK_SIZE][Parameters.X_CHUNK_SIZE] ;
+        int[][] results = new int[Parameters.NUMBER_OF_ROWS][Parameters.NUMBER_OF_COLUMNS] ;
 
         for(int y = 0 ; y < image.size() ; y++)
         {
             for(int x = 0 ; x < image.get(y).length() ; x++)
             {
-                pushCoordinate(x, y, image.get(y).charAt(x), image.get(y).length());
+                pushCoordinate(x, y, image.get(y).charAt(x), image.get(y).length(), image.size());
             }
         }
-        // fill results /done
+   
 
         for (Map.Entry<Coordinate, BlackProbability> coordinateBlackProbabilityEntry : coordinatesToProbability.entrySet()) {
-            results[coordinateBlackProbabilityEntry.getKey().x][coordinateBlackProbabilityEntry.getKey().y] =
+            results[coordinateBlackProbabilityEntry.getKey().y][coordinateBlackProbabilityEntry.getKey().x] =
                     coordinateBlackProbabilityEntry.getValue().getRatio() < Parameters.THRESHOLD ?
                   Parameters.WHITE : Parameters.BLACK;
         }

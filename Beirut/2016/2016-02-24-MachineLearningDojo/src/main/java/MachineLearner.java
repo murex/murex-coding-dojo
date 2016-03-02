@@ -1,9 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.ArrayList;
-
 
 public class MachineLearner {
 
@@ -21,9 +17,13 @@ public class MachineLearner {
         //save(matchEntities);
 
         for (MatchEntity matchEntity : matchEntities) {
-            int[][] results = new ImageProcessor().process(matchEntity.getImage());
+            int[][] results = processImage(matchEntity);
             memory.upgrade(results, matchEntity.getValue());
         }
+    }
+
+    private int[][] processImage(MatchEntity matchEntity) {
+        return new ImageProcessor().process(matchEntity.getImage());
     }
 
     private static void save(ArrayList<MatchEntity> matchEntities) {
@@ -48,4 +48,54 @@ public class MachineLearner {
     }
 
 
+    public ArrayList<Integer> recognize(File image, File label) {
+        ArrayList<MatchEntity> matchEntities = Parser.getMatchingEntities(image, label);
+        ArrayList<Integer> predictions = new ArrayList();
+        for (MatchEntity matchEntity : matchEntities) {
+            double[] probabilities= getProbabilities(matchEntity);
+            predictions.add(getIndexOfHighestProbability(probabilities));
+        }
+        return predictions;
+    }
+
+    private int getIndexOfHighestProbability(double[] probabilities) {
+        double max=1;
+        int index=-1;
+        for(int i=0;i<10;i++)
+        {
+            if(probabilities[i]>max)
+            {
+                max=probabilities[i];
+                index=i;
+            }
+        }
+        return index;
+    }
+
+    private double[] getProbabilities(MatchEntity matchEntity) {
+        double[] probability = new double[10];
+        int[][] results = processImage(matchEntity);
+
+        for(int i =0; i< 10; i++) {
+            probability[i] = bayes(results,i);
+        }
+        return probability;
+    }
+
+    private double bayes(int[][] results, int i) {
+        double probability=1;
+        for (int x = 0; x < results.length; x++) {
+            for (int y = 0; y < results[x].length; y++) {
+                if(results[y][x]==Parameters.BLACK)
+                {
+                    probability*=memory.getData(i)[y][x].getRatio()/memory.getCommonData()[y][x].getRatio();
+                }
+                else{
+                    probability*=memory.getData(i)[y][x].getOppositeRatio()/memory.getCommonData()[y][x].getOppositeRatio();
+                }
+
+            }
+        }
+        return probability;
+    }
 }

@@ -1,4 +1,3 @@
-
 public class BlackProbability {
     public double numerator ;
     public double denominator ;
@@ -15,6 +14,13 @@ public class BlackProbability {
 
     public double getRatio()
     {
-        return numerator/denominator ;
+        if(denominator==0) {
+            return -1;
+        }
+        return numerator / denominator;
+    }
+    public double getOppositeRatio()
+    {
+        return 1-getRatio();
     }
 }

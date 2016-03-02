@@ -1,6 +1,5 @@
 import java.util.HashMap;
 
-
 public class Memory {
     private HashMap<Integer, BlackProbability[][]> cache ;
     private BlackProbability[][] common ;
@@ -11,12 +10,21 @@ public class Memory {
         initializeCache() ;
     }
 
+    public BlackProbability[][] getData(int i)
+    {
+        return  cache.get(i) ;
+    }
+    public BlackProbability[][] getCommonData( )
+    {
+        return  common;
+    }
+
     private BlackProbability[][]  initializeCommon()
     {
-        BlackProbability[][] blackProbabilities = new BlackProbability[Parameters.Y_CHUNK_SIZE][Parameters.X_CHUNK_SIZE];
-        for(int y = 0; y < Parameters.Y_CHUNK_SIZE; y++)
+        BlackProbability[][] blackProbabilities = new BlackProbability[Parameters.NUMBER_OF_ROWS][Parameters.NUMBER_OF_COLUMNS];
+        for(int y = 0; y < Parameters.NUMBER_OF_ROWS; y++)
         {
-            for(int x = 0; x < Parameters.X_CHUNK_SIZE; x++)
+            for(int x = 0; x < Parameters.NUMBER_OF_COLUMNS; x++)
             {
                 blackProbabilities[y][x] = new BlackProbability() ;
             }
