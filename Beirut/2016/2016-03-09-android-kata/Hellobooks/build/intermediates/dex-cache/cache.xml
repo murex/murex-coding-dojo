@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\slack\java\Hellobooks\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\classes-53185c31c128ee910eeec42e7f62d8b2aecd15aa.jar" />
+    </item>
+    <item
+        jar="D:\slack\java\Hellobooks\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\classes-d95abedd76d5e2f961f40301d2acc69023f28e64.jar" />
+    </item>
+    <item
+        jar="C:\Users\mrida\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.19\a8f23f65fc1e522ee4a1a697ee569901a46741fa\library-1.0.19.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\library-1.0.19-b3cd57b63a73475820e581f9537472dd8b8f203a.jar" />
+    </item>
+    <item
+        jar="D:\slack\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.0\support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.0-71d11b4651eff85a724f4ac5fc61f860a78bd803.jar" />
+    </item>
+    <item
+        jar="D:\slack\java\Hellobooks\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\libs\internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.0-1386b225b3260b6806fdf19cc4d9858a9fce513e.jar" />
+    </item>
+    <item
+        jar="C:\Users\mrida\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\glide-3.7.0-b2714abb992647156fc641dd5058356d60fe4608.jar" />
+    </item>
+    <item
+        jar="D:\slack\java\Hellobooks\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="D:\slack\java\Hellobooks\app\build\intermediates\pre-dexed\debug\classes-fe22d5e3752766931f68a63d49d0754dbfcb88f5.jar" />
+    </item>
+
+</items>
